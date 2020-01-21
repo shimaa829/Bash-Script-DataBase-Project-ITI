@@ -29,7 +29,7 @@ user_OPtions(){
                               source ~/Bash-Script-DataBase-Project-ITI/scripts/view_DataBases.sh;;
 
                "Create Table")
-                              echo "create new table";;
+                               source ~/Bash-Script-DataBase-Project-ITI/scripts/create_Table.sh;;
 
                "Delete Table")
                               echo "delete table";;

@@ -13,7 +13,7 @@ else
      cd ~/dataBase_Engin
      ls
      
-     echo "If you want to go back the menu write : yes / no" 
+     echo "If you want to go back the main menu write : yes / no" 
 
      read answer
 

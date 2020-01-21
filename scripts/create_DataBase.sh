@@ -1,6 +1,6 @@
 #!/bin/bash
 
-path_of_dataBase="~/dataBaseEngin"
+path_of_dataBase="~/dataBase_Engin"
 
 
 echo "Enter the name of dataBase ?"
@@ -9,8 +9,7 @@ read dataBase_name
 # create dataBase function
 
  create_dataBase(){
-     
-   #  cd "$path_of_dataBase"
+
 
      #create database to user
      mkdir "$dataBase_name"
@@ -29,12 +28,12 @@ userChoise(){
 
                "Create another DataBase")
                               
-                              source ~/Bash-Script-DataBase-Project-ITI/scripts/create_DataBase.sh;;   
+                              source ~/Bash-Script-DataBase-Project-ITI/create_DataBase.sh;;   
                               
 
                "OPen DataBase")
                               
-                            source ~/Bash-Script-DataBase-Project-ITI/scripts/open_DataBase.sh;;
+                            source ~/Bash-Script-DataBase-Project-ITI/open_DataBase.sh;;
                          
    
                "Go back to main menu" )
