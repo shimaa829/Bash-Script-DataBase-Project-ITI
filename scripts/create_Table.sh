@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 path_of_dataBase="~/dataBase_Engin"
 
 
@@ -10,12 +9,52 @@ path_of_dataBase="~/dataBase_Engin"
 
      
      #create table to user
-     touch "$dataBase_name/$table_name" 
+     touch $table_name 
     
-     #Ask user to enter the columns of the table
+     #Ask user to enter the fields of the table
      echo "Enter columns names sperated with a space"
-     read -a arr-Of-Columns
+     read -a arr_Of_Columns
      
+     #Number of colums
+     length_of_arr="${#arr_Of_Columns[@]}"
+     
+     #declar array of data type 
+     typeset -a arr_dataType[$length_of_arr]
+
+     typeset -i i=0
+     while [ $i -lt $length_of_arr ]
+     do
+
+        echo "for ${arr_Of_Columns[$i]} field determin the dataType of this field: "
+        
+        #choose the data type of fields
+        select data_type in int string 
+        do
+          case $data_type in
+
+               int)
+                    arr_dataType[$i]=int
+                    break;
+                    ;;
+               
+               string)
+                    arr_dataType[$i]=string
+                    break;
+                    ;;
+               *)
+                    echo "please enter the data_type of field"
+                    ;;
+
+          esac
+        done
+        
+        i=$i+1
+     done
+     
+     #echo ${arr_dataType[@]} >> $table_name
+     
+     echo ${arr_Of_Columns[@]} >> $table_name
+
      echo "Your table is created"
 
    
@@ -24,7 +63,7 @@ path_of_dataBase="~/dataBase_Engin"
 
 userChoise(){
 
-        select choise in  "Create another table" "modify on table" "Go back to dataBase_Engin" 
+        select choise in  "Create another table" "Update on table" "Go back to main Menu" 
           do
 
           case $choise in 
@@ -34,18 +73,18 @@ userChoise(){
                               source ~/Bash-Script-DataBase-Project-ITI/scripts/create_Table.sh;;   
                               
 
-               "modify on table")
+               "Update on table")
                               
                              source ~/Bash-Script-DataBase-Project-ITI/scripts/modify_on_DataBase.sh;;
                          
    
-               "Go back to dataBase_Engin" )
+               "Go back to main Menu" )
 
                              source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh;;
                          
                        * )
                               echo exit
-                            #  break;
+                             break;
                               ;;
                  esac
           
@@ -60,15 +99,15 @@ userChoise(){
 if [[ ! -d ~/dataBase_Engin ]]
 then
    
-    echo "Your DataBase Engin isn't initialized ,, please choose the first option:"
-    source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
+     echo "Your DataBase Engin isn't initialized ,, please choose the first option:"
+     source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
     
 
 else
     
      
      cd ~/dataBase_Engin
-     #declare -A arr-dataBase
+   
      arr_dataBases=($(ls))
 
      #check if there are dataBases exist
@@ -81,8 +120,9 @@ else
        echo "Enter the name of dataBase ?"
        read dataBase_name 
 
+       pwd
                #check if the dataBase_name Directory exist
-               if [[ -d "$dataBase_name" ]]
+               if [[ -d $dataBase_name ]]
                then
                     
                
@@ -104,7 +144,7 @@ else
                               
                               
                               else   
-                                   
+                                   cd $dataBase_name
                                    #calling  create_table function
                                    create_table
                                    
@@ -120,21 +160,21 @@ else
 
                else
 
-               echo "this dataBase_name isn't exist"
+                    echo "this dataBase_name isn't exist"
 
-               echo "If you want to go back the main menu write : yes / no" 
+                    echo "If you want to go back the main menu write : yes / no" 
 
-               read answer
+                    read answer
 
-               if [[ $answer="yes" ]]
-               then
-                    
+                    if [[ $answer="yes" ]]
+                    then
+                         
                          source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
 
-               else
-                    
+                    else
+                         
                          echo "You must go back to choose any option"
-               fi
+                    fi
 
 
                fi

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-path_of_dataBase="/home/$USER/dataBaseEngin"
+path_of_dataBase="~/dataBaseEngin"
 
 echo "Enter the name of dataBase?"
 read dataBase_name 
@@ -10,7 +10,7 @@ read dataBase_name
 
 open_dataBase(){
     
-        cd "/home/$USER/dataBaseEngin/$dataBase_name"
+        cd "~/dataBaseEngin/$dataBase_name"
 
         select choise in "Create Table" "Delete Table" "modify on Table"
           do
