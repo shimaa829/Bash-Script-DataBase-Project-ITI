@@ -3,8 +3,6 @@
 path_of_dataBase="~/dataBase_Engin"
 
 
-echo "Enter the name of dataBase ?"
-read dataBase_name 
 
 # create dataBase function
 
@@ -56,12 +54,15 @@ userChoise(){
 if [ ! -d ~/dataBase_Engin ]
 then
    
-    echo "Your DataBase Engin isn't initialized ,, please choose the first option:"
-    source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
-    
+     echo "Your DataBase Engin isn't initialized ,, please choose the first option:"
+     source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
 
 else
     
+     
+     echo "Enter the name of dataBase ?"
+     read dataBase_name 
+
      #check if the dataBase_name Directory exist
      if [ -d "$dataBase_name" ]
      then

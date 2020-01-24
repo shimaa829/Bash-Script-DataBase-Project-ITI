@@ -1,24 +1,21 @@
 #!/bin/bash
 
-
-user_OPtions(){
-
-        select choise in "initialize_dataBase_Engin" "Create DataBase" "Delete DataBase" "OPen DataBase" "View DataBases" "Create Table" "Delete Table" "Table Modification" "Delete DataBase Engin" "Exit the program" 
+   select choise in "initialize_dataBase_Engin" "Create DataBase" "Delete DataBase" "OPen DataBase" "View DataBases" "Create Table" "Table Modifications" "Delete DataBase Engin" "Exit the program" 
           do
 
           case $choise in 
               
-               "initialize_dataBase_Engin" )
+              "initialize_dataBase_Engin" )
                      
-                             source ~/Bash-Script-DataBase-Project-ITI/scripts/create_DataBase_Engin.sh;;
+                             source ~/Bash-Script-DataBase-Project-ITI/scripts/create_DataBase_Engin.sh;;#done
                     
-               "Create DataBase")
+              "Create DataBase")
                               
-                              source ~/Bash-Script-DataBase-Project-ITI/scripts/create_DataBase.sh;;
+                              source ~/Bash-Script-DataBase-Project-ITI/scripts/create_DataBase.sh;;#done
 
-               "Delete DataBase")
+              "Delete DataBase")
                               
-                              source ~/Bash-Script-DataBase-Project-ITI/scripts/delete_DataBase.sh;;
+                              source ~/Bash-Script-DataBase-Project-ITI/scripts/delete_DataBase.sh;;#done
                          
           
               "OPen DataBase")
@@ -26,36 +23,34 @@ user_OPtions(){
                               source ~/Bash-Script-DataBase-Project-ITI/scripts/open_DataBase.sh;;
 
                "View DataBases")
-                              source ~/Bash-Script-DataBase-Project-ITI/scripts/view_DataBases.sh;;
+
+                              source ~/Bash-Script-DataBase-Project-ITI/scripts/view_DataBases.sh;;#done
 
                "Create Table")
-                               source ~/Bash-Script-DataBase-Project-ITI/scripts/create_Table.sh;;
 
-               "Delete Table")
-                              echo "delete table";;
-               "Table Modification" )
-                              echo "modify table";;
+                               source ~/Bash-Script-DataBase-Project-ITI/scripts/create_Table.sh;;#done without determine primary key
+
+               "Table Modifications" )
+
+                              source ~/Bash-Script-DataBase-Project-ITI/scripts/modify_on_Table.sh;;
 
                "Delete DataBase Engin")
-                              echo "delete DataBase Engin";;
+
+                              source ~/Bash-Script-DataBase-Project-ITI/scripts/delete_DataBase_Engin.sh  #done  
+                              break;
+                              ;;                          
 
                "Exit the program" )
-                              echo "exit program";;
+                             
+                              exit ;;
                          
                               * )
                               echo "\n Please select option \n";;
+
           esac
           
           done
 
-}
-
-
-
-
-
- #calling user_option function
-  user_OPtions
 
 
 

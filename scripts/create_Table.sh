@@ -2,7 +2,6 @@
 
 path_of_dataBase="~/dataBase_Engin"
 
-
 # create table
 
  create_table(){
@@ -75,7 +74,7 @@ userChoise(){
 
                "Update on table")
                               
-                             source ~/Bash-Script-DataBase-Project-ITI/scripts/modify_on_DataBase.sh;;
+                             source ~/Bash-Script-DataBase-Project-ITI/scripts/modify_on_Table.sh;;
                          
    
                "Go back to main Menu" )
