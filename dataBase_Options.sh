@@ -28,11 +28,11 @@
 
                "Create Table")
 
-                               source ~/Bash-Script-DataBase-Project-ITI/scripts/create_Table.sh;;#done without determine primary key
+                               source ~/Bash-Script-DataBase-Project-ITI/scripts/create_Table.sh;;#done 
 
                "Table Modifications" )
 
-                              source ~/Bash-Script-DataBase-Project-ITI/scripts/modify_on_Table.sh;;
+                              source ~/Bash-Script-DataBase-Project-ITI/scripts/modify_on_Table.sh;;#insert new record script done
 
                "Delete DataBase Engin")
 
