@@ -2,13 +2,13 @@
 
 path_of_dataBase="~/dataBase_Engin"
 
-# create table
+# create table function
 
  create_table(){
 
      
      #create table to user
-     touch $table_name 
+     touch "$table_name" 
     
      #Ask user to enter the fields of the table
      echo "Enter columns names sperated with a space"
@@ -21,7 +21,7 @@ path_of_dataBase="~/dataBase_Engin"
      typeset -a arr_dataType[$length_of_arr]
 
      typeset -i i=0
-     while [ $i -lt $length_of_arr ]
+     while [[ $i -lt $length_of_arr ]]
      do
 
         echo "for ${arr_Of_Columns[$i]} field determin the dataType of this field: "
@@ -32,12 +32,12 @@ path_of_dataBase="~/dataBase_Engin"
           case $data_type in
 
                int)
-                    arr_dataType[$i]=int
+                    arr_dataType[$i]=1
                     break;
                     ;;
                
                string)
-                    arr_dataType[$i]=string
+                    arr_dataType[$i]=2
                     break;
                     ;;
                *)
@@ -50,16 +50,57 @@ path_of_dataBase="~/dataBase_Engin"
         i=$i+1
      done
      
-     #echo ${arr_dataType[@]} >> $table_name
-     
-     echo ${arr_Of_Columns[@]} >> $table_name
+
+     #function to ask user to determine the primary Key of the table
+     getPk(){
+          #create a while loop to continue ask user to enter pk until enter avalid pk name then break
+          while [ true ]
+          do
+          
+          #Display all columns of table to user
+          echo "Your table columns are :"
+          echo "${arr_Of_Columns[@]}"
+
+          echo "Enter your PK column index number "
+          read pk
+               
+               #Check validation of pk index number
+               if [[ $pk =~ ^[0-9]+$ ]]
+               then
+                    
+                    if [[ $pk -lt $length_of_arr ]]
+                    then
+          
+                              echo " The index of Your primary key column  is:" >> $table_name   #line_1
+                              echo $pk >> $table_name    #line_2
+                              break;
+                         
+                    fi
+               else
+                    echo "$pk  index column is not exist ,, try again please!"
+                    getPk
+               fi
+               
+
+          done
+     }
+
+     #Calling getPK function
+     getPk
+     echo " " >> $table_name #line_3
+     echo "The data types of each column " >> $table_name #line_4
+     echo ${arr_dataType[@]} >> $table_name #line_5
+     echo "Note : (1) => int ,, (2) => string " >> $table_name #line_6
+     echo " " >> $table_name   #line_7
+     echo "Columns and records of table :" >> $table_name #line_8
+     echo ${arr_Of_Columns[@]} >> $table_name     #line_9
 
      echo "Your table is created"
 
    
 }
 
-
+# userChoise function
 userChoise(){
 
         select choise in  "Create another table" "Update on table" "Go back to main Menu" 
@@ -112,7 +153,8 @@ else
      #check if there are dataBases exist
      if [[ ${#arr_dataBases[@]} > 0 ]]
      then
-         
+
+       echo "All available dataBases :"
        #Display all DataBases
        ls
 

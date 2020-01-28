@@ -1,7 +1,6 @@
 #!/bin/bash
 
 
-
 userChoise(){
 
             select modify_option in "Insert_record" "Modify_record" "Delete_record" "Display_table" "Delete_table" 
@@ -10,31 +9,31 @@ userChoise(){
             case $modify_option in
 
                   "Insert_record")
-
-                        echo "insert record";;
+                  
+                          source ~/Bash-Script-DataBase-Project-ITI/scripts/insert_Record.sh;;
                   
                   "Modify_record")
 
-                        echo "update record";;
+                          source ~/Bash-Script-DataBase-Project-ITI/scripts/modify_Record.sh;;
 
                   "Delete_record")
 
-                        echo "Remove record";;
+                          echo "Remove record";;
 
                   "Display_table")
 
-                        echo " display all data";;
+                          echo " display all data";;
 
                   "Delete_table")
                         
-                        source ~/Bash-Script-DataBase-Project-ITI/scripts/delete_Table.sh;;
+                          source ~/Bash-Script-DataBase-Project-ITI/scripts/delete_Table.sh;;
                         
                         *)
 
-                        echo "Go back to main menu"
-                        source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
-                        break;
-                        ;;
+                              echo "Go back to main menu"
+                              source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
+                              break;
+                              ;;
 
 
 
@@ -62,27 +61,24 @@ else
      #check if there are dataBases exist
      if [[ ${#arr_dataBases[@]} > 0 ]]
      then
-
+            echo "All available databases:"
             #Display all DataBases
             ls
 
             echo "Enter the name of dataBase ?"
             read dataBase_name 
 
-            pwd
             #check if the dataBase_name Directory exist
             if [[ -d $dataBase_name ]]
             then
-                 
-
-                        
+                    
                   cd $dataBase_name
                   arr_tables=($(ls))
 
                   #check if there are tables exist
                   if [[ ${#arr_tables[@]} > 0 ]]
                   then
-
+                        echo "All available tables:"
                         #Display all tables
                         ls
 

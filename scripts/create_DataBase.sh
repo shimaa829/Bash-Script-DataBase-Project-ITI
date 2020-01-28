@@ -1,6 +1,6 @@
 #!/bin/bash
 
-path_of_dataBase="~/dataBase_Engin"
+path_of_dataBase=~/dataBase_Engin
 
 
 
@@ -63,6 +63,7 @@ else
      echo "Enter the name of dataBase ?"
      read dataBase_name 
 
+     cd "$path_of_dataBase"
      #check if the dataBase_name Directory exist
      if [ -d "$dataBase_name" ]
      then
