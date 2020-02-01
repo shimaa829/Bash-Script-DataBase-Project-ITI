@@ -5,7 +5,7 @@
 if [[ ! -d ~/dataBase_Engin ]]
 then
 
-    echo "Your DataBase Engin isn't initialized ,, please choose the first option:"
+    printf "\nYour DataBase Engin isn't initialized ,, please choose the first option:"
     source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
 
 else
@@ -21,7 +21,7 @@ else
         #Display all DataBases
         ls
 
-        echo "Enter the dataBase_name of dataBase which you want to delete table from it :"
+        printf "\nEnter the dataBase_name of dataBase which you want to delete table from it :"
         read dataBase_name
 
         #check if the dataBase_dataBase_name Directory exist
@@ -38,7 +38,7 @@ else
                 #Display all tables
                 ls
 
-                echo "Enter the table_name of table ?"
+                printf "\nEnter the table_name of table ?"
                 read table_name
 
                 #check if the table_name is exist
@@ -46,11 +46,11 @@ else
                 then
 
                     rm $table_name
-                    echo "your table is deleted"
+                    printf "\nyour table is deleted"
 
                 else
                    
-                    echo "This table name isn't exist ,, if you want to delete another table choose this option again"
+                    printf "T\nhis table name isn't exist ,, if you want to delete another table choose this option again"
                     source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
 
                     
@@ -58,15 +58,15 @@ else
 
             else
                 
-                echo "This dataBase is empty ,, if you want to create table in this dataBase choose #6 form menu:"
+                printf "This dataBase is empty ,, if you want to create table in this dataBase choose #6 form menu:"
                  source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
              
             fi
         else
             
-            echo "this dataBase isn't exist"
+            printf "this dataBase isn't exist"
 
-            echo  "Go back to menu? yes / no" 
+            printf  "Go back to menu? yes / no" 
 
             read answer
 
@@ -77,7 +77,7 @@ else
                 
             else
 
-                echo "Please select dataBase option"
+                printf "Please select dataBase option"
                 source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
 
             fi
@@ -86,7 +86,7 @@ else
 
     else
         
-        echo "This DataBase Engin is empty ,, please create database first"
+        printf "This DataBase Engin is empty ,, please create database first"
         source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
 
     fi

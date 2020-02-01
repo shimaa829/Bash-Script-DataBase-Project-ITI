@@ -2,8 +2,6 @@
 
 path_of_dataBase=~/dataBase_Engin
 
-
-
 # create dataBase function
 
  create_dataBase(){
@@ -12,7 +10,7 @@ path_of_dataBase=~/dataBase_Engin
      #create database to user
      mkdir "$dataBase_name"
 
-     echo "Your dataBase is created"
+     printf "\nYour dataBase is created\n"
      
 }
 
@@ -40,7 +38,7 @@ userChoise(){
                           ;;
                          
                        * )
-                              echo "\n Please select dataBase option \n";;
+                              printf "\n Please select dataBase option \n";;
           esac
           
           done
@@ -60,7 +58,7 @@ then
 else
     
      
-     echo "Enter the name of dataBase ?"
+     printf "\nEnter the name of dataBase ?"
      read dataBase_name 
 
      cd "$path_of_dataBase"
@@ -68,8 +66,8 @@ else
      if [ -d "$dataBase_name" ]
      then
          
-          echo "This dataBase_name is already exist"
-          echo "If you want create another dataBase or open this dataBase choose one option :"
+          printf "\nThis dataBase_name is already exist\n"
+          echo "If you want create another dataBase or open this dataBase choose one option :\n"
 
           #calling userChoise function
           userChoise 

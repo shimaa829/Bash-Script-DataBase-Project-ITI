@@ -3,30 +3,38 @@
 
 userChoise(){
 
-            select modify_option in "Insert_record" "Modify_record" "Delete_record" "Display_table" "Delete_table" 
+            select modify_option in "Insert_record" "Modify_record" "Delete_record" "Display_table" "Select_record" "Delete_table" 
             do
             
             case $modify_option in
 
                   "Insert_record")
                   
-                          source ~/Bash-Script-DataBase-Project-ITI/scripts/insert_Record.sh;;
+                             source ~/Bash-Script-DataBase-Project-ITI/scripts/insert_Record.sh;;
                   
                   "Modify_record")
 
-                          source ~/Bash-Script-DataBase-Project-ITI/scripts/modify_Record.sh;;
+                             source ~/Bash-Script-DataBase-Project-ITI/scripts/modify_Record.sh;;
 
                   "Delete_record")
-
-                          echo "Remove record";;
+                             
+                             source ~/Bash-Script-DataBase-Project-ITI/scripts/delete_Record.sh;;
 
                   "Display_table")
+                            
+                            source ~/Bash-Script-DataBase-Project-ITI/scripts/printTable.sh
+                            sed '1,8d' $table_name > temp_file
 
-                          source ~/Bash-Script-DataBase-Project-ITI/scripts/display_Table.sh;;
+                            #calling printTable function
+                            printTable ' ' "$(cat temp_file)";;
+
+                  "Select_record")
+                        
+                            source ~/Bash-Script-DataBase-Project-ITI/scripts/select_Record.sh;;
 
                   "Delete_table")
                         
-                          source ~/Bash-Script-DataBase-Project-ITI/scripts/delete_Table.sh;;
+                            source ~/Bash-Script-DataBase-Project-ITI/scripts/delete_Table.sh;;
                         
                         *)
 
@@ -48,7 +56,7 @@ userChoise(){
 if [[ ! -d ~/dataBase_Engin ]]
 then
    
-     echo "Your DataBase Engin isn't initialized ,, please choose the first option:"
+     printf "\nYour DataBase Engin isn't initialized ,, please choose the first option:"
      source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
     
 
@@ -61,11 +69,11 @@ else
      #check if there are dataBases exist
      if [[ ${#arr_dataBases[@]} > 0 ]]
      then
-            echo "All available databases:"
+            printf "\nAll available databases:\n"
             #Display all DataBases
             ls
 
-            echo "Enter the name of dataBase ?"
+            printf "\nEnter the name of dataBase ?"
             read dataBase_name 
 
             #check if the dataBase_name Directory exist
@@ -78,11 +86,11 @@ else
                   #check if there are tables exist
                   if [[ ${#arr_tables[@]} > 0 ]]
                   then
-                        echo "All available tables:"
+                        printf "\nAll available tables:"
                         #Display all tables
                         ls
 
-                        echo "Enter the table_name of table ?"
+                        printf "\nEnter the table_name of table ?"
                         read table_name
 
                         #check if the table_name is exist
@@ -93,7 +101,7 @@ else
 
                         else
                               
-                              echo "This table name isn't exist ,, if you want to delete another table choose this option again"
+                              printf "\nThis table name isn't exist ,, if you want to delete another table choose this option again"
                               source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
 
                               
@@ -101,34 +109,34 @@ else
 
                   else
                   
-                  echo "This dataBase is empty ,, if you want to create table in this dataBase choose #6 form menu:"
-                  source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
+                        printf "\nThis dataBase is empty ,, if you want to create table in this dataBase choose #6 form menu:"
+                        source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
                   
                   fi
 
          else
                  
-                   echo "this dataBase_name isn't exist"
+                  printf "\nThis dataBase_name isn't exist\n"
 
-                    echo "If you want to go back the main menu write : yes / no" 
+                  echo "If you want to go back the main menu write : yes / no" 
 
-                    read answer
+                  read answer
 
-                    if [[ $answer="yes" ]]
-                    then
+                  if [[ $answer="yes" ]]
+                  then
                          
-                         source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
+                        source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
 
-                    else
+                  else
                          
-                         echo "You must go back to choose any option"
-                    fi
+                        printf "\nYou must go back to choose any option"
+                  fi
 
             fi
 
      else
        
-            echo "This DataBase Engin is empty ,, please create database first"
+            printf "\nThis DataBase Engin is empty ,, please create database first"
             source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
 
      fi

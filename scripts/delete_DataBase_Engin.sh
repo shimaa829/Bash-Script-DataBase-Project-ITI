@@ -17,6 +17,6 @@ else
     # Remove dataBase engin
     rm -r dataBase_Engin
 
-    echo "dataBase_Engin removed successfully"
+    printf "\nDataBase_Engin removed successfully\n"
 
 fi

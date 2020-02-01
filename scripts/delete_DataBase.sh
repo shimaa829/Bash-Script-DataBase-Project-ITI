@@ -24,7 +24,7 @@ else
         #Display all DataBases
         ls
 
-        echo "Enter the dataBase_name of dataBase ?"
+        printf "\nEnter the dataBase_name of dataBase ?"
         read dataBase_name
 
         #check if the dataBase_dataBase_name Directory exist
@@ -33,11 +33,11 @@ else
         
             rm -r "$dataBase_name"
 
-            echo "your DataBase is deleted"
+            printf "\nYour DataBase is deleted\n"
 
         else
             
-            echo "this dataBase isn't exist"
+            printf "\nThis dataBase isn't exist\n"
 
             echo  "Go back to menu? yes / no" 
 
@@ -49,7 +49,7 @@ else
                 source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
                 
             else
-                echo "Please select dataBase option"
+               printf "\nPlease select dataBase option"
                 source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
 
             fi
@@ -58,7 +58,7 @@ else
 
     else
         
-        echo "This DataBase Engin is empty ,, please create database first"
+        printf "\nThis DataBase Engin is empty ,, please create database first"
         source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
 
     fi

@@ -24,7 +24,7 @@ path_of_dataBase="~/dataBase_Engin"
      while [[ $i -lt $length_of_arr ]]
      do
 
-        echo "for ${arr_Of_Columns[$i]} field determin the dataType of this field: "
+        printf "\nfor ${arr_Of_Columns[$i]} field determin the dataType of this field: "
         
         #choose the data type of fields
         select data_type in int string 
@@ -41,7 +41,7 @@ path_of_dataBase="~/dataBase_Engin"
                     break;
                     ;;
                *)
-                    echo "please enter the data_type of field"
+                    printf "\n!!please enter the data_type of field!!\n"
                     ;;
 
           esac
@@ -58,7 +58,7 @@ path_of_dataBase="~/dataBase_Engin"
           do
           
           #Display all columns of table to user
-          echo "Your table columns are :"
+          printf "Your table columns are :\n"
           echo "${arr_Of_Columns[@]}"
 
           echo "Enter your PK column index number "
@@ -96,7 +96,7 @@ path_of_dataBase="~/dataBase_Engin"
      echo " " >> $table_name #line_8 
      echo ${arr_Of_Columns[@]} >> $table_name     #line_9
 
-     echo "Your table is created"
+     printf "\nYour table is created successfully\n"
 
    
 }
@@ -179,7 +179,7 @@ else
                               then
                                    
                                    echo "This table_name is  already exist"
-                                   echo "do you want create another table or modify on this dataBase"
+                                   printf "\nDo you want create another table or modify on this dataBase?\n"
 
                                    #calling userChoise function
                                    userChoise 
@@ -197,14 +197,14 @@ else
                               fi
 
                     else
-                          echo "the table name must be string only ,,please try again"
+                          printf "\nthe table name must be string only ,,please try again\n"
                     fi          
 
                else
 
                     echo "this dataBase_name isn't exist"
 
-                    echo "If you want to go back the main menu write : yes / no" 
+                    printf "\nIf you want to go back the main menu write : yes / no" 
 
                     read answer
 
@@ -223,7 +223,7 @@ else
 
      else
         
-        echo "This DataBase Engin is empty ,, please create database first"
+        printf "\nThis DataBase Engin is empty ,, please create database first"
         source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
 
      fi

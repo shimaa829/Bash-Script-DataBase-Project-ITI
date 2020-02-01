@@ -1,11 +1,10 @@
 #!/bin/bash
 
-tableName=$table_name
 
 #'2!d' ==> Prints the contents of Table; excepting all but the second line; to the standard output ( only the second line gets printed)
-read pk <<< `sed '2!d' $tableName`
-read -a arr_Of_dataTypes <<< `sed '5!d' $tableName`
-read -a arr_Of_Columns  <<< `sed '9!d' $tableName`
+read pk <<< `sed '2!d' $table_name`
+read -a arr_Of_dataTypes <<< `sed '5!d' $table_name`
+read -a arr_Of_Columns  <<< `sed '9!d' $table_name`
 
 echo "The index of primary key column of the table is: $pk"
 echo " " 
@@ -39,7 +38,7 @@ insertRecord()
                     if ! [[ ${values_Of_new_record[i]} =~ ^[0-9]+$  ]]  
                     then
 
-                            echo  "the value of ${arr_Of_Columns[i]} must be int ,,please try again"
+                            printf "\nThe value of ${arr_Of_Columns[i]} must be int ,,please try again"
                             insertRecord
                           
                      else
@@ -48,14 +47,12 @@ insertRecord()
 		            if [[ $i == $pk ]]
 		            then
 
-		                  #`awk '{print $i , ${values_Of_new_record[i]} $tableName`
-
-                                  #`awk '{if ( $i == ${values_Of_new_record[i]} ) print "Primary key value is exist please try again"}' $tableName`
+		             
                                   #search for pk value if it exits already or no
 				  typeset -i pk_field_number=$i+1
                                   # -d(delimeter) ==> the delimeter between each field of the record ,, 
                                   # -f(field) ==> the field of pk we want to extract it to search in it to check if the value already exist or no
-			          if [[ $(sed '1,9d' $tableName | cut -d " " -f $pk_field_number | grep -x ${values_Of_new_record[i]} | sed '1!d') =  ${values_Of_new_record[i]} ]]
+			          if [[ $(sed '1,9d' $table_name | cut -d " " -f $pk_field_number | grep -x ${values_Of_new_record[i]} | sed '1!d') =  ${values_Of_new_record[i]} ]]
 				  then 
                                         printf "\nPrimary key value is already exist please try again\n"
                                         i=$i-1
@@ -73,7 +70,7 @@ insertRecord()
                     if ! [[ ${values_Of_new_record[i]} =~ ^[a-zA-Z]+$  ]]
                     then
 
-                        echo  "the value of ${arr_Of_Columns[i]} must be string,,please try again"
+                        echo  "\nThe value of ${arr_Of_Columns[i]} must be string,,please try again"
                         insertRecord 
                  
                     else
@@ -81,10 +78,10 @@ insertRecord()
 		            if [[ $i == $pk ]]
 		            then
 
-		                  #`awk '{if ( $i == ${values_Of_new_record[i]} ) print "Primary key value is exist please try again"}' $tableName`
+		                
 		                   #search for pk value if it exits already or no
 				   typeset -i pk_field_number=$i+1
-			           if [[ $(sed '1,9d' $tableName | cut -d " " -f $pk_field_number | grep -x ${values_Of_new_record[i]} | sed '1!d') =  ${values_Of_new_record[i]} ]]
+			           if [[ $(sed '1,9d' $table_name | cut -d " " -f $pk_field_number | grep -x ${values_Of_new_record[i]} | sed '1!d') =  ${values_Of_new_record[i]} ]]
 				   then 
                                         printf "\nPrimary key value is already exist please try again\n"
                                         i=$i-1
@@ -109,6 +106,6 @@ insertRecord()
 insertRecord
 
 echo  "${values_Of_new_record[@]}" >> $table_name
-echo "new record is added successfully"
+printf "\nNew record is added successfully\n"
 
 
