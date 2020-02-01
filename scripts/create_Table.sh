@@ -87,12 +87,13 @@ path_of_dataBase="~/dataBase_Engin"
 
      #Calling getPK function
      getPk
+
      echo " " >> $table_name #line_3
      echo "The data types of each column " >> $table_name #line_4
      echo ${arr_dataType[@]} >> $table_name #line_5
      echo "Note : (1) => int ,, (2) => string " >> $table_name #line_6
      echo " " >> $table_name   #line_7
-     echo "Columns and records of table :" >> $table_name #line_8
+     echo " " >> $table_name #line_8 
      echo ${arr_Of_Columns[@]} >> $table_name     #line_9
 
      echo "Your table is created"
@@ -161,7 +162,7 @@ else
        echo "Enter the name of dataBase ?"
        read dataBase_name 
 
-       pwd
+      
                #check if the dataBase_name Directory exist
                if [[ -d $dataBase_name ]]
                then

@@ -22,7 +22,7 @@ userChoise(){
 
                   "Display_table")
 
-                          echo " display all data";;
+                          source ~/Bash-Script-DataBase-Project-ITI/scripts/display_Table.sh;;
 
                   "Delete_table")
                         

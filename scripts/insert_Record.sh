@@ -14,6 +14,7 @@ echo ${arr_Of_dataTypes[@]}
 echo " "
 echo "Columns and records of table :" 
 echo ${arr_Of_Columns[@]}
+echo " "
 
 
 insertRecord()
@@ -47,7 +48,9 @@ insertRecord()
 		            if [[ $i == $pk ]]
 		            then
 
-		                  #`awk '{if ( $i == ${values_Of_new_record[i]} ) print "Primary key value is exist please try again"}' $tableName`
+		                  #`awk '{print $i , ${values_Of_new_record[i]} $tableName`
+
+                                  #`awk '{if ( $i == ${values_Of_new_record[i]} ) print "Primary key value is exist please try again"}' $tableName`
                                   #search for pk value if it exits already or no
 				  typeset -i pk_field_number=$i+1
                                   # -d(delimeter) ==> the delimeter between each field of the record ,, 
