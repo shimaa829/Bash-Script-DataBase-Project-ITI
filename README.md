@@ -24,9 +24,11 @@ After clone the project and running the main script for the first time you must 
 <pre>
 1) This option enable you to initlize the main server that have all the DataBases ,,, after choosing this option automaticaly
    the dataBase_Engin directory which has all your dataBases will created.
-   
+</pre>
+<pre>
 2) This option enable you to create more than one database but with different names
-
+</pre>
+<pre>
 3) This option enable you to delete selected database from server
 </pre>
 <pre>
@@ -40,7 +42,8 @@ After clone the project and running the main script for the first time you must 
 </pre>
 <pre> 
 5) This option display all DataBases in your server
-
+</pre>
+<pre>
 6) This option enable you to create more than one database but with different names
 </pre>
 <pre>
@@ -60,7 +63,7 @@ After clone the project and running the main script for the first time you must 
  </pre>
  <pre>    
 8) This option enable you to distroy the whole server with all the databases in it 
-
-9)  This option enable you to exit the program.
-
+</pre>
+<pre>
+9) This option enable you to exit the program.
 </pre>
