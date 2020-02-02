@@ -18,4 +18,7 @@ Welcom To Main Menu Of DataBase
 5) View DataBases
 </pre>
 
+### Note:
+After clone the project and running the main script for the first time you must choose the first option to initialize your dataBase server,,,because you cant't select any option without initlizing the sever
+
 
