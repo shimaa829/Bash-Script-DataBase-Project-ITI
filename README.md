@@ -22,5 +22,22 @@ Welcom To Main Menu Of DataBase
 After clone the project and running the main script for the first time you must choose the first option to initialize your dataBase server,,,because you cant't select any option without initlizing the sever
 
 
+1) This option enable you to initlize the main server that have all the DataBases ,,, after choosing this option automaticaly
+   the dataBase_Engin directory which has all your dataBases will created.
+   
+2) This option enable you to create more than one database but with different names
 
+3) This option enable you to delete selected database from server
 
+4) This option enable you to do other operations on the table in a specific dataBase 
+    
+    this is the menu in it 
+    <pre>
+    1) Create Table
+    2) Delete Table
+    3) modify on Table
+    </pre>
+    
+5) This option display all DataBases in your server
+
+6) 
