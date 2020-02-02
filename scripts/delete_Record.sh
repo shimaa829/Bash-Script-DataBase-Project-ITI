@@ -1,16 +1,6 @@
 #!/bin/bash
 
-
-#'2!d' ==> Prints the contents of Table; excepting all but the second line; to the standard output ( only the second line gets printed)
-read pk <<< `sed '2!d' $table_name`
-read -a arr_Of_dataTypes <<< `sed '5!d' $table_name`
-read -a arr_Of_Columns  <<< `sed '9!d' $table_name`
-
- echo "The index of primary key column of the table is: $pk"
- echo " " 
- echo "The data types of each column   [Note : (1) => int ,, (2) => string] " 
- echo ${arr_Of_dataTypes[@]}
- echo " "
+source ~/Bash-Script-DataBase-Project-ITI/scripts/get_variables.sh
     
  source ~/Bash-Script-DataBase-Project-ITI/scripts/printTable.sh
  sed '1,8d' $table_name > temp_file
@@ -33,11 +23,13 @@ removeRecord()
 		sed "$number_of_record"d $table_name > temp_file
 		cat temp_file > $table_name
 		rm temp_file
+		
 		printf "\nThe record which his Primary key  value is $pk_Value has been deleted\n"
                            
 	else
                                  
 		echo "The pk_value isn't exist,,please try again"
+
         removeRecord
 
     fi

@@ -1,5 +1,6 @@
 #!/bin/bash
-   printf "\nWelcom To Main Menu Of DataBase\n"
+
+   printf "\nWelcom To Main Menu Of DataBase\n\n"
    select choise in "initialize_dataBase_Engin" "Create DataBase" "Delete DataBase" "OPen DataBase" "View DataBases" "Create Table" "Table Modifications" "Delete DataBase Engin" "Exit the program" 
           do
 

@@ -76,8 +76,10 @@ path_of_dataBase="~/dataBase_Engin"
                               break;
                          
                     fi
-               else
-                    echo "$pk  index column is not exist ,, try again please!"
+               else 
+                    printf "\n$pk  index column is not exist ,, try again please!\n"
+
+                    #Calling getPk function [Recursion]
                     getPk
                fi
                
@@ -140,7 +142,7 @@ userChoise(){
 if [[ ! -d ~/dataBase_Engin ]]
 then
    
-     echo "Your DataBase Engin isn't initialized ,, please choose the first option:"
+     printf "\nYour DataBase Engin isn't initialized ,, please choose the first option:"
      source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
     
 
@@ -155,7 +157,7 @@ else
      if [[ ${#arr_dataBases[@]} > 0 ]]
      then
 
-       echo "All available dataBases :"
+       printf "\nAll available dataBases :\n"
        #Display all DataBases
        ls
 
@@ -178,7 +180,7 @@ else
                               if [ -f "$dataBase_name/$table_name" ]
                               then
                                    
-                                   echo "This table_name is  already exist"
+                                   printf "\nThis table_name is  already exist"
                                    printf "\nDo you want create another table or modify on this dataBase?\n"
 
                                    #calling userChoise function
@@ -201,30 +203,20 @@ else
                     fi          
 
                else
+                    
+                    printf "\nThis dataBase-name isn't exist\n"
 
-                    echo "this dataBase_name isn't exist"
+                    printf  "Go back to menu\n" 
 
-                    printf "\nIf you want to go back the main menu write : yes / no" 
-
-                    read answer
-
-                    if [[ $answer="yes" ]]
-                    then
-                         
-                         source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
-
-                    else
-                         
-                         echo "You must go back to choose any option"
-                    fi
+                    source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
 
 
                fi
 
      else
         
-        printf "\nThis DataBase Engin is empty ,, please create database first"
-        source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
+          printf "\nThis DataBase Engin is empty ,, please create database first"
+          source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
 
      fi
 

@@ -1,12 +1,9 @@
 #!/bin/bash
 
-path_of_dataBase="~/dataBaseEngin"
 
-echo "Enter the name of dataBase?"
-read dataBase_name 
+path_of_dataBase=~/dataBase_Engin
 
-
-#open dataBase
+#open dataBase function
 
 open_dataBase(){
     
@@ -31,7 +28,7 @@ open_dataBase(){
                               source ~/Bash-Script-DataBase-Project-ITI/scripts/modify_on_Table.sh;;
                          
                               * )
-                              echo exit;;
+                              printf "\nPlease choose the correct option 1 or 2 or 3\n"
           esac
           
           done
@@ -39,38 +36,57 @@ open_dataBase(){
 }
 
 
+#Check if the DataBase Engin is initialized
 
-
-
-
-
-#check if the dataBase_name Directory exist
-
-if [ -d "$path_of_dataBase/$dataBase_name" ]
+if [ ! -d ~/dataBase_Engin ]
 then
-     
-      
-       #calling the fuction
-       open_dataBase
    
-  
-else   
- 
+    echo "Your DataBase Engin isn't initialized ,, please choose the first option:"
+    source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
 
-    echo "this dataBase_name isn't exist" 
-      
-    echo "do you want create a new database? yes / no"
+else
 
-    read answer
-    if [ $answer = "yes" ]
+    cd ~/dataBase_Engin
+
+    arr_dataBases=($(ls))
+
+    #check if there are dataBases exist
+    if [[ ${#arr_dataBases[@]} > 0 ]]
     then
-       source ~/Bash-Script-DataBase-Project-ITI/create_DataBase.sh
+        
+        printf "\nAll available DataBases:"
+        #Display all DataBases
+        ls
+
+        printf "\nEnter the dataBase_name of dataBase ?"
+        read dataBase_name
+
+        #check if the dataBase_dataBase_name Directory exist
+        if [ -d "$dataBase_name" ]
+        then
+           
+            #calling open database function
+            open_dataBase
+
+            printf "\nYour DataBase is deleted\n"
+
+        else
+            
+            printf "\nThis dataBase isn't exist\n"
+
+            printf  "Go back to menu\n" 
+
+            source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
+
+
+        fi
+
     else
-       source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
+        
+        printf "\nThis DataBase Engin is empty ,, please create database first"
+        source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
+
     fi
-    
+
 fi
 
-
-#calling the fuction
-open_dataBase

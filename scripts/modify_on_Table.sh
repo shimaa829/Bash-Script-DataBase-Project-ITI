@@ -86,12 +86,13 @@ else
                   #check if there are tables exist
                   if [[ ${#arr_tables[@]} > 0 ]]
                   then
-                        printf "\nAll available tables:"
+                        printf "\nAll available tables:\n"
                         #Display all tables
                         ls
 
                         printf "\nEnter the table_name of table ?"
                         read table_name
+                        echo " "
 
                         #check if the table_name is exist
                         if [[ -f $table_name ]]

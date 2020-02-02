@@ -1,16 +1,7 @@
 #!/bin/bash
 
+source ~/Bash-Script-DataBase-Project-ITI/scripts/get_variables.sh
 
-#'2!d' ==> Prints the contents of Table; excepting all but the second line; to the standard output ( only the second line gets printed)
-read pk <<< `sed '2!d' $table_name`
-read -a arr_Of_dataTypes <<< `sed '5!d' $table_name`
-read -a arr_Of_Columns  <<< `sed '9!d' $table_name`
-
-echo "The index of primary key column of the table is: $pk"
-echo " " 
-echo "The data types of each column   [Note : (1) => int ,, (2) => string] " 
-echo ${arr_Of_dataTypes[@]}
-echo " "
 echo "Columns and records of table :" 
 echo ${arr_Of_Columns[@]}
 echo " "
@@ -23,7 +14,7 @@ insertRecord()
         length_of_arr="${#arr_Of_Columns[@]}"
 
 
-        echo "Insert the values of new record ,, please enter the values of fields with a valid data types"
+        printf "\nInsert the values of new record ,, please enter the values of fields with a valid data types:/n"
         read -a values_Of_new_record
 
 
@@ -39,6 +30,7 @@ insertRecord()
                     then
 
                             printf "\nThe value of ${arr_Of_Columns[i]} must be int ,,please try again"
+                            #function calls itself [Recursion]  
                             insertRecord
                           
                      else
@@ -50,13 +42,15 @@ insertRecord()
 		             
                                   #search for pk value if it exits already or no
 				  typeset -i pk_field_number=$i+1
+
                                   # -d(delimeter) ==> the delimeter between each field of the record ,, 
                                   # -f(field) ==> the field of pk we want to extract it to search in it to check if the value already exist or no
 			          if [[ $(sed '1,9d' $table_name | cut -d " " -f $pk_field_number | grep -x ${values_Of_new_record[i]} | sed '1!d') =  ${values_Of_new_record[i]} ]]
 				  then 
                                         printf "\nPrimary key value is already exist please try again\n"
                                         i=$i-1
-                                                
+
+                                        #function calls itself [Recursion]      
                                         insertRecord
                                   fi
 		                 
@@ -70,7 +64,8 @@ insertRecord()
                     if ! [[ ${values_Of_new_record[i]} =~ ^[a-zA-Z]+$  ]]
                     then
 
-                        echo  "\nThe value of ${arr_Of_Columns[i]} must be string,,please try again"
+                        printf "\nThe value of ${arr_Of_Columns[i]} must be string,,please try again"
+                        #function calls itself [Recursion]  
                         insertRecord 
                  
                     else
@@ -85,6 +80,8 @@ insertRecord()
 				   then 
                                         printf "\nPrimary key value is already exist please try again\n"
                                         i=$i-1
+
+                                        #function calls itself [Recursion]  
                                         insertRecord
                                    fi
 		                 
@@ -103,6 +100,7 @@ insertRecord()
 
 }
 
+#Calling insertRecord function
 insertRecord
 
 echo  "${values_Of_new_record[@]}" >> $table_name

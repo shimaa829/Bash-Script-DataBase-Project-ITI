@@ -52,13 +52,13 @@ userChoise(){
 if [ ! -d ~/dataBase_Engin ]
 then
    
-     echo "Your DataBase Engin isn't initialized ,, please choose the first option:"
+     printf "\nYour DataBase Engin isn't initialized ,, please choose the first option:\n"
      source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
 
 else
     
      
-     printf "\nEnter the name of dataBase ?"
+     printf "\nEnter the name of dataBase ?\n"
      read dataBase_name 
 
      cd "$path_of_dataBase"

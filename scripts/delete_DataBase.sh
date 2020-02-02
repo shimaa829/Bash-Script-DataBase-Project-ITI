@@ -20,7 +20,8 @@ else
     #check if there are dataBases exist
     if [[ ${#arr_dataBases[@]} > 0 ]]
     then
-         
+        
+        printf "\nAll available DataBases:"
         #Display all DataBases
         ls
 
@@ -39,20 +40,9 @@ else
             
             printf "\nThis dataBase isn't exist\n"
 
-            echo  "Go back to menu? yes / no" 
+            printf  "Go back to menu\n" 
 
-            read answer
-
-            if [ $answer = "yes" ]
-            then
-
-                source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
-                
-            else
-               printf "\nPlease select dataBase option"
-                source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
-
-            fi
+            source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
 
         fi
 

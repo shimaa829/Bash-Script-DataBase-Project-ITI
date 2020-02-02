@@ -5,7 +5,7 @@
 if [ ! -d ~/dataBase_Engin ]
 then
    
-    echo "Your DataBase Engin isn't initialized ,, please choose the first option:"
+    printf "\nYour DataBase Engin isn't initialized ,, please choose the first option:\n"
     source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
 
 else
@@ -13,7 +13,7 @@ else
      cd ~/dataBase_Engin
      ls
      
-     echo "If you want to go back the main menu write : yes / no" 
+     printf "\nIf you want to go back the main menu write : yes / no\n" 
 
      read answer
 
