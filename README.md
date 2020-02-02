@@ -28,35 +28,36 @@ After clone the project and running the main script for the first time you must 
 2) This option enable you to create more than one database but with different names
 
 3) This option enable you to delete selected database from server
-
+</pre>
+<pre>
 4) This option enable you to do other operations on the table in a specific dataBase 
-    </pre>
+    
     this is displayed the menu 
-    <pre>
+  
     1) Create Table
     2) Delete Table
     3) modify on Table
-    </pre>
-   <pre> 
+</pre>
+<pre> 
 5) This option display all DataBases in your server
 
 6) This option enable you to create more than one database but with different names
-
+</pre>
+<pre>
 7) This option enable you to do operations on the table in a specific dataBase 
-    </pre>
+    
     this is displayed the menu 
-     <pre>
+   
       1) Insert_record  3) Delete_record  5) Select_record
       2) Modify_record  4) Display_table  6) Delete_table
-    </pre>
-     <pre>
+
      1) This option enable you to insert record to the selected table
      2) This option enable you to do a modification in a specific record in the selected table
      3) This option enable you to delete record from the selected table
      4) This option display the content of the selected table
      5) This option display the selected records from table 
      6) This option enable you to delete selected table from a specific dataBase
-     </pre>
+ </pre>
  <pre>    
 8) This option enable you to distroy the whole server with all the databases in it 
 
