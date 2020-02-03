@@ -3,6 +3,7 @@
 
 source ~/Bash-Script-DataBase-Project-ITI/scripts/get_variables.sh
 
+#Display the content of table
 source ~/Bash-Script-DataBase-Project-ITI/scripts/printTable.sh
 sed '1,8d' $table_name > temp_file
 
@@ -11,7 +12,7 @@ printTable ' ' "$(cat temp_file)"
 
 modifyRecord()
 {
-                #printf "\nNote: the roecord you want to modify on it will be removed and i ask you to enter all values of this row again with modified value\n"
+                printf "\nNote: the roecord you want to modify on it will be removed and i ask you to enter all values of this row again with modified value\n"
                 printf "\nEnter the pk value of the record you want to modify:\n"
                 read pk_value 
 
@@ -19,9 +20,7 @@ modifyRecord()
                 typeset -i pk_field_number=$pk+1
                 if [[ $(sed '1,9d' $table_name | cut -d " " -f $pk_field_number | grep -x $pk_value | sed '1!d') =  $pk_value ]]
                 then 
-                                                
-                                                
-
+                
                         no_of_record=$(cut -d " " -f $pk_field_number $table_name | grep -xn $pk_value | cut -d: -f 1)
                         sed "$no_of_record"d $table_name > new_file
                         cat new_file > $table_name
@@ -34,7 +33,7 @@ modifyRecord()
                                         length_of_arr="${#arr_Of_Columns[@]}"
 
 
-                                        printf "\nInsert the values of the record that you want to modify on it again with modified value,, please enter the values of fields with a valid data types"
+                                        printf "\nInsert the values of the record that you want to modify on it again with modified value,, please enter the values of fields with a valid data types\n"
                                         read -a values_of_modified_record
 
 
@@ -84,7 +83,7 @@ modifyRecord()
                                                 if ! [[ ${values_of_modified_record[i]} =~ ^[a-zA-Z]+$  ]]
                                                 then
 
-                                                        printf  "\nThe value of ${arr_Of_Columns[i]} must be string,,please try again"
+                                                        printf  "\nThe value of ${arr_Of_Columns[i]} must be string,,please try again\n"
 
                                                         #function calls itself [Recursion]
                                                         insertRecord 
@@ -112,7 +111,7 @@ modifyRecord()
 
                                         else
                                         
-                                                printf "\nPlease insert the values again,,"
+                                                printf "\nPlease insert the values again,,\n"
                                                 #function calls itself [Recursion]
                                                 insertRecord
                                         fi
@@ -129,7 +128,7 @@ modifyRecord()
                   
                 else
                                                 
-                        printf "\nThe pk_value isn't exist,,please try again"
+                        printf "\nThe pk_value isn't exist,,please try again\n"
                         #function calls itself [Recursion]
                         modifyRecord
 

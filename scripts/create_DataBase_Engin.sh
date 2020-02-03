@@ -18,7 +18,7 @@ else
   
 fi
 
-printf "\nTo create DataBase press 1 \n To go back to main menu press 2 :\n"
+printf "\nTo create DataBase press 1 \nTo go back to main menu press 2 :\n\n"
 
  select choise in  "Create DataBase" "Go back to main menu"
                       

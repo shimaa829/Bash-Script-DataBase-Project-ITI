@@ -11,7 +11,7 @@ path_of_dataBase="~/dataBase_Engin"
      touch "$table_name" 
     
      #Ask user to enter the fields of the table
-     echo "Enter columns names sperated with a space"
+     printf "\nEnter columns names sperated with a space\n"
      read -a arr_Of_Columns
      
      #Number of colums
@@ -61,7 +61,7 @@ path_of_dataBase="~/dataBase_Engin"
           printf "Your table columns are :\n"
           echo "${arr_Of_Columns[@]}"
 
-          echo "Enter your PK column index number "
+          printf "\nEnter your PK column index number\n"
           read pk
                
                #Check validation of pk index number
@@ -98,7 +98,7 @@ path_of_dataBase="~/dataBase_Engin"
      echo " " >> $table_name #line_8 
      echo ${arr_Of_Columns[@]} >> $table_name     #line_9
 
-     printf "\nYour table is created successfully\n"
+     printf "\nYour table is created successfully\n\n"
 
    
 }
@@ -158,19 +158,23 @@ else
      then
 
        printf "\nAll available dataBases :\n"
+
        #Display all DataBases
-       ls
+       for i in $(ls -d *); 
+       do
+         echo ${i}; 
+       done
 
-       echo "Enter the name of dataBase ?"
+       printf "\nEnter the name of dataBase ?\n"
        read dataBase_name 
-
+       printf "\n"
       
                #check if the dataBase_name Directory exist
                if [[ -d $dataBase_name ]]
                then
                     
                
-                    echo "Enter the name of table ?"
+                    printf "\nEnter the name of table ?\n"
                     read table_name 
 
                     #Check the validation of the table name

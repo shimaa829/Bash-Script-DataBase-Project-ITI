@@ -1,10 +1,11 @@
 #!/bin/bash
 
 source ~/Bash-Script-DataBase-Project-ITI/scripts/get_variables.sh
-    
- source ~/Bash-Script-DataBase-Project-ITI/scripts/printTable.sh
- sed '1,8d' $table_name > temp_file
- printTable ' ' "$(cat temp_file)"
+
+#Display the content of table    
+source ~/Bash-Script-DataBase-Project-ITI/scripts/printTable.sh
+sed '1,8d' $table_name > temp_file
+printTable ' ' "$(cat temp_file)"
 
 
 
@@ -24,16 +25,18 @@ removeRecord()
 		cat temp_file > $table_name
 		rm temp_file
 		
-		printf "\nThe record which his Primary key  value is $pk_Value has been deleted\n"
+		printf "\nThe record has been deleted\n"
                            
 	else
                                  
-		echo "The pk_value isn't exist,,please try again"
-
+		printf "\nThe pk_value isn't exist,,please try again\n"
+        
+		#Calling removeRecord itself [Recursion] 
         removeRecord
 
     fi
 
 }
 
+#Calling removeRecord function
 removeRecord

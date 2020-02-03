@@ -6,7 +6,7 @@
 if [ ! -d ~/dataBase_Engin ]
 then
    
-    echo "Your DataBase Engin isn't initialized ,, to initialize new engin choose the first option:"
+    printf "\nYour DataBase Engin isn't initialized ,, to initialize new engin choose the first option:\n"
     source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
 
 else

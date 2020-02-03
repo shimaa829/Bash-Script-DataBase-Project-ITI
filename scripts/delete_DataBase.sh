@@ -8,7 +8,7 @@ path_of_dataBase=~/dataBase_Engin
 if [ ! -d ~/dataBase_Engin ]
 then
    
-    echo "Your DataBase Engin isn't initialized ,, please choose the first option:"
+    printf "\nYour DataBase Engin isn't initialized ,, please choose the first option:\n"
     source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
 
 else
@@ -21,11 +21,15 @@ else
     if [[ ${#arr_dataBases[@]} > 0 ]]
     then
         
-        printf "\nAll available DataBases:"
-        #Display all DataBases
-        ls
+       printf "\nAll available DataBases:\n"
 
-        printf "\nEnter the dataBase_name of dataBase ?"
+       #Display all DataBases
+       for i in $(ls -d *); 
+       do
+         echo ${i}; 
+       done
+
+        printf "\nEnter the dataBase_name of dataBase ?\n"
         read dataBase_name
 
         #check if the dataBase_dataBase_name Directory exist
