@@ -7,7 +7,7 @@ path_of_dataBase=~/dataBase_Engin
 
 open_dataBase(){
     
-        cd "~/dataBaseEngin/$dataBase_name"
+        cd "$path_of_dataBase/$dataBase_name"
 
         select choise in "Create Table" "Delete Table" "modify on Table"
           do
