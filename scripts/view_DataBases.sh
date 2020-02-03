@@ -11,20 +11,18 @@ then
 else
     
      cd ~/dataBase_Engin
-     ls
+     printf "\nAll DataBases are : \n"
+
+     #List all Databases
+     for i in $(ls -d *); 
+     do
+      echo ${i}; 
+     done
      
-     printf "\nIf you want to go back the main menu write : yes / no\n" 
+     
+     printf "\nGo back to the main menu to select another option\n" 
+ 
+     source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
 
-     read answer
-
-     if [ $answer="yes" ]
-     then
-       
-       source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
-
-     else
-        
-        echo "You must go back to choose any option"
-     fi
 
 fi

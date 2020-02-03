@@ -14,7 +14,7 @@ insertRecord()
         length_of_arr="${#arr_Of_Columns[@]}"
 
 
-        printf "\nInsert the values of new record ,, please enter the values of fields with a valid data types:/n"
+        printf "\nInsert the values of new record ,, please enter the values of fields with a valid data types:\n"
         read -a values_Of_new_record
 
 
@@ -29,7 +29,8 @@ insertRecord()
                     if ! [[ ${values_Of_new_record[i]} =~ ^[0-9]+$  ]]  
                     then
 
-                            printf "\nThe value of ${arr_Of_Columns[i]} must be int ,,please try again"
+                            printf "\nThe value of ${arr_Of_Columns[i]} must be int ,,please try again\n"
+
                             #function calls itself [Recursion]  
                             insertRecord
                           
@@ -64,7 +65,7 @@ insertRecord()
                     if ! [[ ${values_Of_new_record[i]} =~ ^[a-zA-Z]+$  ]]
                     then
 
-                        printf "\nThe value of ${arr_Of_Columns[i]} must be string,,please try again"
+                        printf "\nThe value of ${arr_Of_Columns[i]} must be string,,please try again\n"
                         #function calls itself [Recursion]  
                         insertRecord 
                  

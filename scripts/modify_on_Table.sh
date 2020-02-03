@@ -26,15 +26,17 @@ userChoise(){
                             sed '1,8d' $table_name > temp_file
 
                             #calling printTable function
-                            printTable ' ' "$(cat temp_file)";;
+                            printTable ' ' "$(cat temp_file)"
+                            rm temp_file;;
 
                   "Select_record")
                         
                             source ~/Bash-Script-DataBase-Project-ITI/scripts/select_Record.sh;;
 
                   "Delete_table")
-                        
-                            source ~/Bash-Script-DataBase-Project-ITI/scripts/delete_Table.sh;;
+                                       
+                              rm $table_name
+                              printf "\nyour table is deleted\n";;
                         
                         *)
 
@@ -56,7 +58,7 @@ userChoise(){
 if [[ ! -d ~/dataBase_Engin ]]
 then
    
-     printf "\nYour DataBase Engin isn't initialized ,, please choose the first option:"
+     printf "\nYour DataBase Engin isn't initialized ,, please choose the first option:\n"
      source ~/Bash-Script-DataBase-Project-ITI/dataBase_Options.sh
     
 
@@ -70,10 +72,14 @@ else
      if [[ ${#arr_dataBases[@]} > 0 ]]
      then
             printf "\nAll available databases:\n"
-            #Display all DataBases
-            ls
 
-            printf "\nEnter the name of dataBase ?"
+            #Display all DataBases
+            for i in $(ls -d *); 
+            do
+            echo ${i}; 
+            done
+
+            printf "\nEnter the name of dataBase ?\n"
             read dataBase_name 
 
             #check if the dataBase_name Directory exist
@@ -87,10 +93,14 @@ else
                   if [[ ${#arr_tables[@]} > 0 ]]
                   then
                         printf "\nAll available tables:\n"
-                        #Display all tables
-                        ls
 
-                        printf "\nEnter the table_name of table ?"
+                        #Display all Tables
+                        for i in $(ls *); 
+                        do
+                              echo ${i}; 
+                        done
+
+                        printf "\nEnter the table_name of table ?\n"
                         read table_name
                         echo " "
 

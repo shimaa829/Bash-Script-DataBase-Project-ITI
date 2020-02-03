@@ -10,7 +10,7 @@ path_of_dataBase=~/dataBase_Engin
      #create database to user
      mkdir "$dataBase_name"
 
-     printf "\nYour dataBase is created\n"
+     printf "\nYour dataBase is created \n"
      
 }
 
@@ -24,12 +24,12 @@ userChoise(){
 
                "Create another DataBase")
                               
-                              source ~/Bash-Script-DataBase-Project-ITI/create_DataBase.sh;;   
+                              source ~/Bash-Script-DataBase-Project-ITI/scripts/create_DataBase.sh;;   
                               
 
                "OPen DataBase")
                               
-                            source ~/Bash-Script-DataBase-Project-ITI/open_DataBase.sh;;
+                            source ~/Bash-Script-DataBase-Project-ITI/scripts/open_DataBase.sh;;
                          
    
                "Go back to main menu" )
@@ -67,7 +67,7 @@ else
      then
          
           printf "\nThis dataBase_name is already exist\n"
-          echo "If you want create another dataBase or open this dataBase choose one option :\n"
+          printf "If you want create another dataBase or open this dataBase choose one option :\n"
 
           #calling userChoise function
           userChoise 
