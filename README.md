@@ -1,4 +1,4 @@
-# DataBase Search Engin
+# DataBase Search Engine
  In this project we build a DataBase Bash Script 
 ## Run the project
 1. Open your terminal in home directory and write a command (git init) to initialize repository
@@ -11,9 +11,9 @@ The main menu will displayed in your terminal and you have all options of dataBa
 
 Welcom To Main Menu Of DataBase
 <pre>
-1) initialize_dataBase_Engin       6) Create Table
+1) initialize_dataBase_Engine       6) Create Table
 2) Create DataBase                 7) Table Modifications
-3) Delete DataBase                 8) Delete DataBase Engin
+3) Delete DataBase                 8) Delete DataBase Engine
 4) OPen DataBase                   9) Exit the program
 5) View DataBases
 </pre>
