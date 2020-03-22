@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                sh 'echo 'build another branch'
+                sh 'echo build another branch'
                 sh 'ls'
             }
            }
