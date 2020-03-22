@@ -1,9 +1,8 @@
-node {
-
-   stage('Build') {
-   
-      sh 'ls'  
-      
-      }
-
-}
+pipeline {
+    agent any 
+    stages {
+        stage('Build') { 
+            steps {
+                sh 'ls'
+            }
+        }
